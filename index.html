@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beaumont Barbers — Earth, Craft, Tradition</title>
+    <meta name="description" content="Beaumont Barbers, Plymouth. Earthy, traditional barbering with natural products and timeless craft." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #f5ede0;
+            color: #3d3228;
+            line-height: 1.7;
+        }
+        h1, h2, h3 { font-family: 'DM Serif Display', serif; font-weight: 400; }
+
+        /* Hero — earthy brown/tan */
+        .hero {
+            background: linear-gradient(160deg, #e8d5b8 0%, #d4bfa0 40%, #c4a880 100%);
+            padding: 5rem 2rem 4rem;
+            text-align: center;
+            position: relative;
+        }
+        .hero .leaf {
+            position: absolute;
+            font-size: 3rem;
+            opacity: 0.12;
+        }
+        .hero .leaf:nth-child(1) { top: 10%; left: 8%; }
+        .hero .leaf:nth-child(2) { bottom: 12%; right: 10%; font-size: 4rem; }
+        .hero .leaf:nth-child(3) { top: 40%; right: 20%; font-size: 2rem; }
+        .hero h1 {
+            font-size: 3.5rem;
+            color: #2a1f14;
+            letter-spacing: -1px;
+            margin-bottom: 0.25rem;
+        }
+        .hero .caption {
+            font-size: 1.05rem;
+            color: #5a4a38;
+            font-style: italic;
+            max-width: 400px;
+            margin: 0.5rem auto;
+        }
+        .hero .divider-line {
+            width: 60px;
+            height: 2px;
+            background: #8a7050;
+            margin: 1rem auto;
+            opacity: 0.4;
+        }
+        .hero .cta {
+            display: inline-block;
+            padding: 0.8rem 2.5rem;
+            background: #5a3a28;
+            color: #f0e4d0;
+            text-decoration: none;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: background 0.2s;
+        }
+        .hero .cta:hover { background: #3d2a1c; }
+
+        nav {
+            background: #ede0cc;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            border-bottom: 1px solid #d4c4a8;
+        }
+        nav a {
+            color: #3d3228;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 0.25rem 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s;
+        }
+        nav a:hover { border-bottom-color: #8a7050; }
+
+        .section {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+        .section h2 {
+            font-size: 2.2rem;
+            color: #2a1f14;
+            margin-bottom: 1.5rem;
+        }
+        .section h2 small {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #8a7050;
+            display: block;
+            margin-top: 0.25rem;
+        }
+        .section .sub-bar {
+            width: 50px;
+            height: 2px;
+            background: #8a7050;
+            margin-bottom: 2rem;
+            opacity: 0.3;
+        }
+
+        /* About — earthy split */
+        .about-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        .about-split .image-block {
+            aspect-ratio: 3 / 4;
+            background: #d4c4a8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6a5a48;
+            font-size: 0.9rem;
+            position: relative;
+        }
+        .about-split .image-block::after {
+            content: '';
+            position: absolute;
+            top: 12px; left: 12px; right: -12px; bottom: -12px;
+            border: 1px solid #c4a880;
+            z-index: -1;
+        }
+        .about-split p { margin-bottom: 1rem; color: #5a4a38; font-size: 1.05rem; }
+
+        /* Philosophy block */
+        .philosophy {
+            background: #ede0cc;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin: 0;
+        }
+        .philosophy blockquote {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.6rem;
+            font-style: italic;
+            color: #3d3228;
+            max-width: 600px;
+            margin: 0 auto 0.5rem;
+        }
+        .philosophy cite { font-style: normal; font-size: 0.85rem; color: #7a6a58; }
+
+        /* Services — terracotta cards */
+        .srv-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        .srv-card {
+            background: #fff8ee;
+            padding: 2rem;
+            border-radius: 0;
+            border: 1px solid #e0d0b8;
+            transition: border-color 0.2s;
+        }
+        .srv-card:hover { border-color: #8a7050; }
+        .srv-card h3 { font-size: 1.2rem; color: #2a1f14; margin-bottom: 0.25rem; }
+        .srv-card .price {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.6rem;
+            color: #7a5a38;
+        }
+        .srv-card p { font-size: 0.85rem; color: #7a6a58; }
+        .srv-card .natural-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #6a7a4a;
+            background: #eaf0dc;
+            padding: 0.2rem 0.6rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Natural products strip */
+        .product-strip {
+            background: #e0d0b8;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        .product-strip h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.5rem;
+            color: #2a1f14;
+            margin-bottom: 0.5rem;
+        }
+        .product-strip p { color: #5a4a38; max-width: 500px; margin: 0 auto; }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            background: #ede0cc;
+            padding: 2.5rem;
+        }
+        .contact-grid a { color: #5a3a28; text-decoration: none; font-weight: 500; }
+        .contact-grid a:hover { text-decoration: underline; }
+        .hours dt { font-weight: 600; color: #2a1f14; margin-top: 0.75rem; }
+        .hours dd { margin-left: 0; color: #5a4a38; }
+
+        footer {
+            background: #2a1f14;
+            color: #a09078;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .about-split, .srv-grid, .contact-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.2rem; }
+            nav { gap: 1rem; flex-wrap: wrap; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#natural">Natural</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section class="hero">
+    <span class="leaf">🌿</span>
+    <span class="leaf">🌾</span>
+    <span class="leaf">🍂</span>
+    <h1>Beaumont Barbers</h1>
+    <div class="divider-line"></div>
+    <p class="caption">Earth, craft, tradition — naturally better barbering.</p>
+    <a class="cta" href="#contact">Visit Us</a>
+</section>
+
+<section class="section" id="about">
+    <h2>Slow Barbering<small>Rooted in tradition</small></h2>
+    <div class="sub-bar"></div>
+    <div class="about-split">
+        <div class="image-block">📸 Shop Interior</div>
+        <div>
+            <p>Beaumont Barbers is a return to what barbering should be — unhurried, intentional, and grounded in craft. No rushed chairs, no rotating cast of stylists. Just honest work with natural products and a steady hand.</p>
+            <p>We use organic, vegan-friendly grooming products, source our towels from local suppliers, and take the time to understand what <em>you</em> want — not what's trending. Every cut is a conversation.</p>
+        </div>
+    </div>
+</section>
+
+<section class="philosophy">
+    <blockquote>"Good hair doesn't need chemicals. It needs care, craft, and a little patience."</blockquote>
+    <cite>— Mark Beaumont, Founder</cite>
+</section>
+
+<section class="section" id="services">
+    <h2>Services<small>Honest prices, quality craft</small></h2>
+    <div class="sub-bar"></div>
+    <div class="srv-grid">
+        <div class="srv-card">
+            <h3>Beaumont Cut</h3>
+            <div class="price">£22</div>
+            <p>Wash, precision cut, organic styling</p>
+            <div class="natural-badge">Natural wash included</div>
+        </div>
+        <div class="srv-card">
+            <h3>Fade &amp; Blend</h3>
+            <div class="price">£26</div>
+            <p>Seamless fade with natural finish</p>
+        </div>
+        <div class="srv-card">
+            <h3>Beard Craft</h3>
+            <div class="price">£14</div>
+            <p>Hot towel, organic oil, scissor finish</p>
+        </div>
+        <div class="srv-card">
+            <h3>Signature Combo</h3>
+            <div class="price">£33</div>
+            <p>Cut + beard — naturally better together</p>
+        </div>
+        <div class="srv-card">
+            <h3>Traditional Shave</h3>
+            <div class="price">£20</div>
+            <p>Straight razor, pre-shave oil, alum block</p>
+            <div class="natural-badge">Vegan cream</div>
+        </div>
+        <div class="srv-card">
+            <h3>Gentleman's Wash</h3>
+            <div class="price">£8</div>
+            <p>Organic shampoo &amp; scalp massage</p>
+        </div>
+    </div>
+</section>
+
+<section class="product-strip" id="natural">
+    <h3>🌱 100% Natural Grooming</h3>
+    <p>We only stock organic, cruelty-free, and vegan-friendly grooming products. Your hair deserves better than synthetics.</p>
+</section>
+
+<section class="section" id="contact">
+    <h2>Find Us<small>Plymouth's natural barber</small></h2>
+    <div class="sub-bar"></div>
+    <div class="contact-grid">
+        <div>
+            <p><strong>Beaumont Barbers</strong><br />5 Beaumont Road<br />Plymouth PL4 9BE</p>
+            <p>📞 01752 567890</p>
+            <p>✉️ <a href="mailto:beaumontbarbers@hotmail.co.uk">beaumontbarbers@hotmail.co.uk</a></p>
+        </div>
+        <div>
+            <dl class="hours">
+                <dt>Tuesday – Saturday</dt>
+                <dd>9:00 am – 5:30 pm</dd>
+                <dt>Thursday</dt>
+                <dd>9:00 am – 7:00 pm (late)</dd>
+                <dt>Sunday – Monday</dt>
+                <dd>Closed</dd>
+            </dl>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2025 Beaumont Barbers · Naturally crafted in Plymouth</p>
+</footer>
+
+</body>
+</html>
